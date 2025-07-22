@@ -1,404 +1,331 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PK Ventures</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Monisha Tech Design</title>
+
+  <!-- Meta Tags -->
+  <meta name="description" content="Monisha Tech Design - Portfolio and Web Solutions Agency">
+  <meta name="author" content="Monisha Tech Design">
+  <meta property="og:title" content="Monisha Tech Design">
+  <meta property="og:description" content="Creative web design, branding, and e-commerce solutions.">
+  <meta property="og:image" content="image/1.png">
+  <meta property="og:url" content="https://yourdomain.com">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
   <style>
     body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f8f9fa;
-      color: #333;
+      font-family: 'Roboto Mono', monospace;
+      background: linear-gradient(to right, #000000, #1a1a1a);
+      color: #fff;
+      scroll-behavior: smooth;
     }
 
     .navbar {
-      background-color: #0d3b66;
+      background-color: #111;
     }
+
     .navbar-brand img {
-      max-height: 45px;
-    }
-    .navbar-nav .nav-link {
-      color: #f0f4f8;
-      font-weight: 500;
-    }
-    .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
-      color: #ffca3a;
-    }
-    .navbar-toggler {
-      border-color: #ffca3a;
+      height: 70px;
+      filter: drop-shadow(0 0 5px gold);
     }
 
-    .carousel-item img {
-      height: 75vh;
-      object-fit: cover;
-      filter: brightness(85%);
-    }
-    .carousel-caption {
-      background: rgba(13, 59, 102, 0.7);
-      padding: 1rem 2rem;
-      border-radius: 12px;
-    }
-    .carousel-caption h5 {
-      color: #ffca3a;
+    .btn-custom {
+      background: linear-gradient(to right, gold, orange);
+      color: #000;
       font-weight: bold;
-    }
-    .carousel-caption p {
-      color: #f8f9fa;
-    }
-
-    h2, h3 {
-      color: #0d3b66;
-      font-weight: 700;
-    }
-
-    .about-text p {
-      line-height: 1.7;
-    }
-
-    .service-card {
-      border: none;
-      border-radius: 16px;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-    }
-    .service-card img {
-      height: 220px;
-      object-fit: cover;
-    }
-    .card-title i {
-      margin-right: 8px;
-      color: #ffca3a;
-    }
-    .btn-primary {
-      background-color: #0d3b66;
+      border-radius: 30px;
+      padding: 12px 30px;
       border: none;
     }
-    .btn-primary:hover {
-      background-color: #092b4d;
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px 50px;
     }
 
-    .counter-section {
-      background-color: #e9ecef;
-      padding: 3rem 0;
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      background: linear-gradient(to right, #FFD700, #FF8C00, #FF69B4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .about-us {
+      padding: 60px 20px;
+      background: #111;
+    }
+
+    .about-img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    }
+
+    .project-img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+      margin-bottom: 10px;
+    }
+
+    .services .card {
+      border: none;
+      transition: transform 0.3s;
+    }
+
+    .services .card:hover {
+      transform: scale(1.03);
+    }
+
+    .footer {
+      background-color: #111;
+      padding: 20px 0;
+      text-align: center;
+      color: #aaa;
+    }
+
+    .footer i {
+      margin: 0 8px;
+      font-size: 1.2rem;
+      color: gold;
+      transition: color 0.3s;
+    }
+
+    .footer i:hover {
+      color: orange;
+    }
+
+    #status {
+      display: none;
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 8px;
       text-align: center;
     }
-    .counter {
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: #0d3b66;
-    }
-    .counter-label {
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
-      color: #555;
-    }
 
-    footer {
-      background-color: #0d3b66;
-      color: #f8f9fa;
-      padding: 3rem 0 2rem;
-    }
-    .footer-title {
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-    .footer-title img {
-      max-height: 55px;
-      margin-bottom: 1rem;
-    }
-    footer a {
-      color: #ffca3a;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-    .footer-contact p, .footer-contact a {
-      font-size: 0.95rem;
-      margin: 0;
-    }
-    .footer-links a {
-      display: block;
-      margin: 6px 0;
-      font-size: 0.95rem;
-    }
-    .footer-bottom {
-      border-top: 1px solid #f8f9fa33;
-      margin-top: 2rem;
-      padding-top: 1rem;
-      font-size: 0.9rem;
-      text-align: center;
-      color: #ccc;
-    }
-
-    .whatsapp-float {
-      position: fixed;
-      width: 60px;
-      height: 60px;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
+    #status.success {
+      background-color: #198754;
       color: white;
-      border-radius: 50%;
-      text-align: center;
-      font-size: 30px;
-      z-index: 100;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      line-height: 60px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
     }
-    .whatsapp-float:hover {
-      background-color: #1ebea5;
+
+    #status.error {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    #backToTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 20px;
+      background: gold;
+      color: black;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      font-size: 18px;
+      display: none;
+      cursor: pointer;
+      z-index: 999;
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <header>
-    <nav class="navbar navbar-expand-lg">
-      <div class="container">
-        <a class="navbar-brand" href="#">
-          <img src="images/logo magic.webp" alt="PK Ventures Logo">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" data-bs-toggle="dropdown">
-                Services
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                <li><a class="dropdown-item" href="#">Web Development</a></li>
-                <li><a class="dropdown-item" href="#">App Development</a></li>
-                <li><a class="dropdown-item" href="#">Digital Marketing</a></li>
-                <li><a class="dropdown-item" href="#">Graphic Designing</a></li>
-                <li><a class="dropdown-item" href="#">Software Development</a></li>
-                <li><a class="dropdown-item" href="#">SEO & Content Creating</a></li>
-              </ul>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-          </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search">
-            <button class="btn btn-outline-warning" type="submit">Search</button>
-          </form>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Carousel -->
-  <div id="carouselExampleDark" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"></button>
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="5000">
-        <img src="images/3.jpg" class="d-block w-100" alt="Slide 1">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Innovative Web Design</h5>
-          <p>We create stunning websites that work for your business.</p>
-        </div>
-      </div>
-      <div class="carousel-item" data-bs-interval="5000">
-        <img src="images/4.jpg" class="d-block w-100" alt="Slide 2">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Creative Solutions</h5>
-          <p>Powerful design backed by technology.</p>
-        </div>
-      </div>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#"><img src="image/1.png" alt="Monisha Tech Design Logo"></a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navbarNav" class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
     </div>
   </div>
+</nav>
 
-  <!-- About Us -->
-  <div class="container my-5">
-    <h2 class="text-center mb-4">About Us</h2>
-    <div class="row align-items-center about-text">
-      <div class="col-md-6 mb-4 mb-md-0">
-        <img src="images/11.jpg" alt="About PK Ventures" class="img-fluid rounded shadow">
+<!-- Hero Section with Video Slideshow -->
+<section class="hero" id="home" style="position: relative; height: 100vh; overflow: hidden;">
+  <video id="heroVideo" autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+    <source src="image/vedio 1.mp4" type="video/mp4">
+  </video>
+  <div class="container d-flex flex-column justify-content-center align-items-center text-center" style="height: 100%;">
+    <h1 class="display-4 fw-bold text-white">Monisha Tech Design</h1>
+    <p class="lead text-light">We build impactful websites with creativity, precision & purpose.</p>
+    <a href="#contact" class="btn btn-custom mt-3">Get in Touch</a>
+  </div>
+</section>
+
+<!-- About Us Section -->
+<section class="about-us" id="about">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-md-6">
+        <img src="image/11.jpg" alt="About Us Image" class="about-img">
       </div>
       <div class="col-md-6">
-        <p>At PK Ventures Pvt Ltd, we offer top-notch digital solutions that help businesses in Vellore and beyond thrive in the digital age. Our mission is to empower brands with innovative, tailored strategies that drive results.</p>
-        <p>With a passion for excellence, we’ve become the go-to partner for digital success. Our dedicated team combines creativity with technical expertise to deliver results that matter.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Our Services -->
-  <div class="container mb-5">
-    <h3 class="text-center mb-4">Our Services</h3>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
-        <div class="card h-100 shadow service-card">
-          <img src="images/5.jpg" class="card-img-top" alt="Web Development">
-          <div class="card-body">
-            <h5 class="card-title"><i class="bi bi-code-slash"></i> Web Development</h5>
-            <p class="card-text">Modern, responsive websites with the latest technologies to boost your online presence.</p>
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100 shadow service-card">
-          <img src="images/6.jpg" class="card-img-top" alt="App Development">
-          <div class="card-body">
-            <h5 class="card-title"><i class="bi bi-phone"></i> App Development</h5>
-            <p class="card-text">Intuitive Android and iOS apps designed for user engagement and performance.</p>
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100 shadow service-card">
-          <img src="images/7.jpg" class="card-img-top" alt="Digital Marketing">
-          <div class="card-body">
-            <h5 class="card-title"><i class="bi bi-megaphone"></i> Digital Marketing</h5>
-            <p class="card-text">SEO, social media, and advertising campaigns to grow your brand online.</p>
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100 shadow service-card">
-          <img src="images/8.jpg" class="card-img-top" alt="Graphic Designing">
-          <div class="card-body">
-            <h5 class="card-title"><i class="bi bi-palette"></i> Graphic Designing</h5>
-            <p class="card-text">Creative and professional designs for your branding needs.</p>
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100 shadow service-card">
-          <img src="images/9.jpg" class="card-img-top" alt="Software Development">
-          <div class="card-body">
-            <h5 class="card-title"><i class="bi bi-cart"></i> Software Development</h5>
-            <p class="card-text">Custom software solutions tailored to your business requirements.</p>
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100 shadow service-card">
-          <img src="images/10.jpg" class="card-img-top" alt="SEO & Content Creating">
-          <div class="card-body">
-            <h5 class="card-title"><i class="bi bi-cloud"></i> SEO & Content Creating</h5>
-            <p class="card-text">Improve your search ranking and engage customers with quality content.</p>
-            <a href="#" class="btn btn-primary">Learn More</a>
+        <h2 class="text-warning mb-3">About Us</h2>
+        <p>At <strong>Monisha Tech Design</strong>, we specialize in crafting elegant, responsive, and result-driven websites. From personal brands to growing businesses, our mission is to provide digital solutions that leave a lasting impression.</p>
+        <div class="mt-4">
+          <h5 class="text-info">Latest Projects</h5>
+          <div class="row g-3">
+            <div class="col-6">
+              <img src="image/9.jpg" alt="Portfolio Website" class="project-img">
+              <small>Portfolio Website</small>
+            </div>
+            <div class="col-6">
+              <img src="image/10.jpg" alt="Business Landing Page" class="project-img">
+              <small>Business Landing Page</small>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- Counters -->
-  <section class="counter-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-6 col-md-3 mb-4">
-          <div class="counter" data-target="200">0</div>
-          <div class="counter-label">Projects Completed</div>
+<!-- Services Section -->
+<section class="services text-center" id="services">
+  <div class="container py-5">
+    <h2 class="text-warning mb-4">Our Services</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card bg-dark text-white h-100">
+          <img src="image/2.jpg" class="card-img-top" alt="Web Design">
+          <div class="card-body">
+            <h5 class="card-title text-info">Web Design</h5>
+            <p class="card-text">Modern, responsive websites tailored to your brand.</p>
+          </div>
         </div>
-        <div class="col-6 col-md-3 mb-4">
-          <div class="counter" data-target="25">0</div>
-          <div class="counter-label">Active Clients</div>
+      </div>
+      <div class="col-md-4">
+        <div class="card bg-dark text-white h-100">
+          <img src="image/6.jpg" class="card-img-top" alt="E-commerce">
+          <div class="card-body">
+            <h5 class="card-title text-success">E-commerce</h5>
+            <p class="card-text">Online stores built for speed, performance, and conversions.</p>
+          </div>
         </div>
-        <div class="col-6 col-md-3 mb-4">
-          <div class="counter" data-target="150">0</div>
-          <div class="counter-label">Happy Clients</div>
-        </div>
-        <div class="col-6 col-md-3 mb-4">
-          <div class="counter" data-target="5">0</div>
-          <div class="counter-label">Years of Experience</div>
+      </div>
+      <div class="col-md-4">
+        <div class="card bg-dark text-white h-100">
+          <img src="image/4.jpg" class="card-img-top" alt="Branding">
+          <div class="card-body">
+            <h5 class="card-title text-warning">Branding & Logo</h5>
+            <p class="card-text">Unique brand identities and logo creation services.</p>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="row text-center text-md-start">
-        <div class="col-md-6 mb-4">
-          <div class="footer-title">
-            <img src="images/logo magic.webp" alt="PK Ventures Logo">
-          </div>
-          <p>We’re PK Ventures — your digital growth partner in Vellore, delivering smart tech, striking design, and result-driven marketing to elevate your business in the digital world.</p>
-          <p class="mt-3">
-            📧 <a href="mailto:pkventures2020@gmail.com">pkventures2020@gmail.com</a>
-          </p>
-          <div class="mt-3">
-            <a href="https://www.facebook.com/p/Partha-Ventures-61552062492583/" target="_blank" class="me-2">
-              <i class="bi bi-facebook" style="font-size: 1.4rem;"></i>
-            </a>
-            <a href="https://www.instagram.com/pkventurespvtltd/" target="_blank" class="me-2">
-              <i class="bi bi-instagram" style="font-size: 1.4rem;"></i>
-            </a>
-            <a href="https://www.youtube.com/@pkventures-Digital-Media/videos" target="_blank" class="me-2">
-              <i class="bi bi-youtube" style="font-size: 1.4rem;"></i>
-            </a>
-            <a href="https://wa.me/917868037533" target="_blank">
-              <i class="bi bi-whatsapp" style="font-size: 1.4rem;"></i>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-3 footer-links mb-4">
-          <div class="footer-title">Explore</div>
-          <a href="#">Our Team</a>
-          <a href="#">Services</a>
-          <a href="#">Contact</a>
-        </div>
-        <div class="col-md-3 footer-contact">
-          <div class="footer-title">Contact</div>
-          <p>No : 1/172, 2nd Floor Near Lakshmi Hospital</p>
-          <p>Chitoor Main Road, Dharapadavedu, Katpadi</p>
-          <p>Vellore, Tamil Nadu 632007</p>
-          <p>📞 +91 78680 37533</p>
-          <p>📞 +91 79046 87981</p>
-          <p>📧 <a href="mailto:pkventures2020@gmail.com">pkventures2020@gmail.com</a></p>
-        </div>
+<!-- Contact Section -->
+<section class="contact py-5" id="contact">
+  <div class="container">
+    <h2 class="text-warning text-center mb-4">Contact Us</h2>
+    <form id="contact-form" class="mx-auto" style="max-width: 600px;">
+      <input type="text" name="honeypot" style="display: none;">
+      <div class="mb-3">
+        <input type="text" name="name" class="form-control" placeholder="Your Name" required />
       </div>
-      <div class="footer-bottom">
-        © copyright 2025 by PK Ventures Pvt Ltd
+      <div class="mb-3">
+        <input type="email" name="email" class="form-control" placeholder="Your Email" required />
       </div>
-    </div>
-  </footer>
+      <div class="mb-3">
+        <textarea name="message" class="form-control" placeholder="Your Message" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-custom w-100">Send Message</button>
+      <div id="status" class="mt-3"></div>
+    </form>
+  </div>
+</section>
 
-  <a href="https://wa.me/917868037533" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
-    <i class="bi bi-whatsapp"></i>
-  </a>
+<!-- Footer -->
+<footer class="footer">
+  <p>© 2025 Monisha Tech Design. All rights reserved.</p>
+  <div>
+    <a href="https://www.linkedin.com/in/monisha-balasubramani-7a652123a/" target="_blank" aria-label="LinkedIn">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+  </div>
+</footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const counters = document.querySelectorAll('.counter');
-    counters.forEach(counter => {
-      counter.innerText = '0';
-      const updateCounter = () => {
-        const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText;
-        const increment = target / 100;
-        if (count < target) {
-          counter.innerText = `${Math.ceil(count + increment)}`;
-          setTimeout(updateCounter, 20);
-        } else {
-          counter.innerText = target;
-        }
-      };
-      updateCounter();
-    });
-  </script>
+<!-- Back to Top Button -->
+<button onclick="topFunction()" id="backToTopBtn" title="Back to Top">↑</button>
+
+<!-- Scripts -->
+<script>
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("status");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    status.style.display = "block";
+    status.className = "";
+    status.innerText = "⏳ Sending...";
+
+    const formData = new FormData(form);
+    if (formData.get("honeypot")) return; // Trap spam bots
+
+    try {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbySx9QrNR_UPzxzPbcNKKWCYw-ffLTfvrk4cySB-f1QTQXregIn-n_mLXerli3ElEwaIA/exec", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        status.className = "success";
+        status.innerText = "✅ Your message has been sent successfully!";
+        form.reset();
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
+      status.className = "error";
+      status.innerText = "❌ There was a problem sending your message. Please try again.";
+    }
+  });
+
+  // Back to top button
+  const btn = document.getElementById("backToTopBtn");
+  window.onscroll = () => {
+    btn.style.display = (document.documentElement.scrollTop > 100) ? "block" : "none";
+  };
+  function topFunction() {
+    document.documentElement.scrollTop = 0;
+  }
+</script>
+
+<!-- Chatbot Script -->
+<!-- Replace 'yourwidgetcode.js' with actual Tidio or other chatbot widget -->
+<div class="chatbot">
+  <script src="//code.tidio.co/yourwidgetcode.js" async></script>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
